@@ -1,0 +1,94 @@
+/* =====================================================================
+   REQUEST AN INTRODUCTION (request.html). Loaded after lux.css.
+   A calm form on paper: one column of underlined fields, a quiet ledger
+   rail with Josh's face small, the dark close.
+   ===================================================================== */
+.rq2{background:var(--paper)}
+.rq2-g{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(48px,8vw,144px);align-items:start}
+.rq2-main{max-width:640px;min-width:0}
+
+/* ---------- the form: strip the legacy card ---------- */
+.lux .rq2 .rform{max-width:none;margin:0;padding:0;background:none;border:0;box-shadow:none}
+.lux .rq2 .rform::before{display:none}
+.rq2-note{font-size:14px;line-height:1.55;color:var(--muted);padding-bottom:28px;border-bottom:1px solid var(--rule);margin-bottom:clamp(48px,5vw,72px)}
+.lux .rq2 .rf-set{padding:0;margin:0}
+.lux .rq2 .rf-set+.rf-set{margin-top:clamp(72px,7vw,104px);padding-top:0}
+.lux .rq2 .rf-set+.rf-set::before{display:none}
+.lux .rq2 .rf-set legend{display:flex;align-items:baseline;gap:18px;font-family:var(--fd);font-weight:400;font-size:var(--x-h3);line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin:0 0 14px;padding:0}
+.lux .rq2 .rf-n{font-family:var(--fd);font-size:15px;font-weight:400;letter-spacing:0;color:var(--accent-text);font-variant-numeric:lining-nums}
+.lux .rq2 .rf-lead{font-size:15.5px;line-height:1.62;color:var(--muted);max-width:52ch;margin:0 0 8px}
+.lux .rq2 .rf-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(30px,2.8vw,40px);margin-top:clamp(28px,2.6vw,36px)}
+
+/* fields: 13px label, 16px text, 52px underline */
+.lux .rq2 .rf-f .fl{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:2px}
+.lux .rq2 .rf-f input,.lux .rq2 .rf-f select,.lux .rq2 .rf-f textarea{display:block;width:100%;height:52px;font-family:var(--fb);font-size:16px;line-height:1.4;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(10,29,58,.26);border-radius:0;padding:0;box-shadow:none;outline:0;transition:border-color .3s var(--ease-cine),box-shadow .3s var(--ease-cine);-webkit-appearance:none;appearance:none}
+.lux .rq2 .rf-f textarea{height:auto;min-height:104px;padding:14px 0 12px;line-height:1.55;resize:none}
+.lux .rq2 .rf-f select{padding-right:32px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A1D3A' stroke-width='1.6'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;background-size:16px}
+.lux .rq2 .rf-f select:invalid,.lux .rq2 .rf-f select option[value=""]{color:#8A95A3}
+.lux .rq2 .rf-f input::placeholder,.lux .rq2 .rf-f textarea::placeholder{color:#9AA5B2}
+.lux .rq2 .rf-f input:hover,.lux .rq2 .rf-f select:hover,.lux .rq2 .rf-f textarea:hover{border-bottom-color:rgba(10,29,58,.5)}
+.lux .rq2 .rf-f input:focus,.lux .rq2 .rf-f select:focus,.lux .rq2 .rf-f textarea:focus{border-bottom-color:var(--ink);box-shadow:0 1px 0 var(--ink)}
+.lux .rq2 .rf-f input:focus-visible,.lux .rq2 .rf-f select:focus-visible,.lux .rq2 .rf-f textarea:focus-visible{outline:0}
+.lux .rq2 .rf-f .fh{font-size:13px;line-height:1.55;color:var(--muted);margin-top:10px;max-width:56ch}
+.lux .rq2 .rf-f .fiterr{font-size:13px;margin-top:10px;color:var(--accent-text)}
+.lux .rq2 .rf-f.err input,.lux .rq2 .rf-f.err select,.lux .rq2 .rf-f.err textarea{border-bottom-color:var(--accent-text);box-shadow:0 1px 0 var(--accent-text)}
+.lux .rq2 .rf-f.err .fl{color:var(--accent-text)}
+
+/* consent: a sharp square */
+.lux .rq2 .rf-consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:16px;align-items:start;margin-top:clamp(64px,6vw,88px);padding-top:32px;border-top:1px solid var(--rule);font-size:14px;line-height:1.6;color:var(--body);cursor:pointer}
+.lux .rq2 .rf-consent input{width:20px;height:20px;margin:1px 0 0;border:1px solid rgba(10,29,58,.4);border-radius:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer;transition:background-color .25s,border-color .25s}
+.lux .rq2 .rf-consent input:checked{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/13px no-repeat;border-color:var(--ink)}
+.lux .rq2 .rf-consent input:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.lux .rq2 .rf-consent.err{color:var(--accent-text)}
+.lux .rq2 .rf-consent.err input{border-color:var(--accent-text)}
+.rq2 .rf-nav{display:flex;align-items:center;flex-wrap:wrap;gap:18px 32px;margin-top:40px}
+.rq2-fine{font-size:13px;line-height:1.55;color:var(--muted);max-width:34ch}
+
+/* thank-you, local state */
+.lux .rq2 .rf-done{max-width:none;margin:0;background:none;border:0;border-top:1px solid var(--rule);padding:clamp(48px,5vw,72px) 0 0;text-align:left}
+.rq2 .rf-done .x-h2{margin-bottom:24px;max-width:14ch}
+.rq2 .rf-done .x-body{margin-bottom:34px}
+
+/* ---------- the rail: a quiet ledger ---------- */
+.rq2-rail{align-self:stretch}
+.rq2-stick{position:sticky;top:calc(var(--nav-h) + 48px)}
+.rq2-who{display:flex;align-items:center;gap:18px;padding-bottom:28px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.rq2-who img{width:64px;height:64px;object-fit:cover;object-position:50% 30%;flex:none;filter:saturate(.92)}
+.rq2-who b{display:block;font-family:var(--fd);font-weight:400;font-size:20px;line-height:1.2;color:var(--ink)}
+.rq2-who span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+.rq2-rail .x-run{margin-bottom:8px}
+.rq2-next{list-style:none;margin:0;padding:0}
+.rq2-next li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:26px 0;border-bottom:1px solid var(--rule)}
+.rq2-n{font-family:var(--fd);font-size:15px;line-height:1.6;color:var(--accent-text);font-variant-numeric:lining-nums}
+.lux .rq2-next h3{font-family:var(--fd);font-weight:400;font-size:20px;line-height:1.3;color:var(--ink);margin-bottom:6px}
+.rq2-next p{font-size:15px;line-height:1.6;color:var(--body)}
+
+/* ---------- the close ---------- */
+.lux .rq2-close{padding-block:clamp(112px,12vw,184px);text-align:center}
+.rq2-close .x-run{justify-content:center}
+.rq2-close .x-h2{max-width:15ch;margin:0 auto 28px;font-size:clamp(40px,4.8vw,72px)}
+.rq2-close .x-body{margin:0 auto 40px;max-width:44ch}
+.rq2-close .x-acts{justify-content:center}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .rq2-g{grid-template-columns:minmax(0,1fr)}
+  .rq2-main{max-width:680px}
+  .rq2-rail{order:-1;max-width:680px;align-self:start}
+  .rq2-stick{position:static}
+  .rq2-next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+  .rq2-next li{grid-template-columns:1fr;gap:10px}
+}
+@media (max-width:760px){
+  .rq2-next{grid-template-columns:1fr}
+  .rq2-next li{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:20px 0}
+}
+@media (max-width:640px){
+  .rq2-who{margin-bottom:28px;padding-bottom:22px}
+  .rq2 .rf-nav .btn{width:100%}
+  .lux .rq2-close{text-align:left}
+  .rq2-close .x-run,.rq2-close .x-acts{justify-content:flex-start}
+  .rq2-close .x-h2,.rq2-close .x-body{margin-left:0}
+}
+.rq2-close .x-h2 .it{display:block}
+#rfDone{scroll-margin-top:calc(var(--nav-h) + 72px)}

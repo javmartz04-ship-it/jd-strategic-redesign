@@ -1,0 +1,106 @@
+/* =====================================================================
+   ABOUT: an editorial biography.
+   Timeline ledger + two archive plates, a three-column hairline ledger,
+   one aligned comparison grid, the dark close. Reuses lux.css tokens.
+   ===================================================================== */
+
+/* ---------- I. the life: timeline ---------- */
+.ab-life{background:var(--paper);padding-bottom:clamp(88px,9vw,136px)}
+.ab-life-h{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:clamp(32px,6vw,112px);align-items:end;margin-bottom:clamp(48px,5vw,76px)}
+.ab-life-h .x-run{grid-column:1/-1}
+.ab-life-h .x-h2{max-width:14ch}
+.ab-life-q{font-family:var(--fd);font-style:italic;font-size:clamp(20px,1.7vw,25px);line-height:1.4;color:var(--ink);max-width:24ch;padding-left:22px;border-left:1px solid var(--rule);margin:0 0 .3em}
+
+.ab-tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.ab-tl>li{display:grid;grid-template-columns:clamp(120px,12vw,170px) minmax(0,.62fr) minmax(0,1.38fr);column-gap:clamp(20px,3vw,56px);padding:clamp(26px,2.5vw,36px) 0;border-bottom:1px solid var(--rule)}
+.ab-era{position:relative;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:.55em;margin:0}
+.ab-tl h3{font-family:var(--fd);font-size:var(--x-h3);line-height:1.2;color:var(--ink);margin:0}
+.ab-tl li>p:last-child{font-size:var(--x-body);line-height:1.66;color:var(--body);max-width:64ch;margin:0}
+
+/* archive plate one: full measure */
+.ab-plate{margin:clamp(56px,6vw,88px) 0}
+.ab-plate-f{position:relative;overflow:hidden;aspect-ratio:16/8.2;background:var(--stone)}
+.ab-plate-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 85%}
+.ab-plate figcaption,.ab-late-f figcaption{display:flex;align-items:baseline;gap:18px;padding-top:18px;margin-top:0;font-size:14px;line-height:1.5;color:var(--muted);border-top:0}
+.ab-plate figcaption span,.ab-late-f figcaption span{font-family:var(--fd);font-size:18px;color:var(--accent-text);font-variant-numeric:lining-nums;flex:none}
+
+/* archive plate two, beside the late chapters */
+.ab-late{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:clamp(40px,6vw,104px);align-items:start}
+.ab-late-f{margin:0;position:sticky;top:calc(var(--nav-h) + 56px)}
+.ab-late-img{position:relative;overflow:hidden;aspect-ratio:4/3.6;background:var(--stone)}
+.ab-late-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+.ab-tl-s>li{grid-template-columns:1fr;row-gap:10px;padding:clamp(24px,2.2vw,32px) 0}
+.ab-tl-s .ab-era{padding-top:0}
+.ab-tl-s h3{margin-bottom:2px}
+
+/* ---------- II. the pillars: one hairline ledger ---------- */
+.ab-why{background:var(--ivory);padding-block:clamp(80px,8vw,120px)}
+.ab-why-h{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr);column-gap:clamp(32px,6vw,112px);align-items:end;margin-bottom:clamp(48px,5vw,76px)}
+.ab-why-h .x-h2{max-width:20ch;margin:0}
+.ab-why-h .x-lede{margin:0 0 .35em}
+.ab-ledger{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.ab-ledger>div{padding:clamp(28px,3vw,44px) clamp(18px,2.4vw,40px) clamp(32px,3.2vw,48px) 0;border-right:1px solid var(--rule)}
+.ab-ledger>div+div{padding-left:clamp(18px,2.4vw,40px)}
+.ab-ledger>div:last-child{border-right:0}
+.ab-ledger dt{font-family:var(--fd);font-size:var(--x-h3);line-height:1.2;color:var(--ink);margin-bottom:14px}
+.ab-ledger dd{margin:0;font-size:16.5px;line-height:1.65;color:var(--body);max-width:36ch}
+
+/* ---------- III. broker vs coach: ONE grid, rows share height ---------- */
+.ab-cmp{background:var(--paper);padding-block:clamp(88px,9vw,136px)}
+.ab-cmp-h{margin-bottom:clamp(44px,4.4vw,64px)}
+.ab-cmp-h .x-h2{max-width:24ch}
+.ab-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--ink)}
+.ab-g-h{font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:22px 0;border-bottom:1px solid var(--rule)}
+.ab-g-h.ab-r{color:var(--ink)}
+.ab-g{display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:20px;align-items:start;padding:clamp(20px,1.8vw,26px) 0;border-bottom:1px solid var(--rule)}
+.ab-l{padding-right:clamp(24px,4vw,64px)}
+.ab-r{padding-left:clamp(24px,4vw,64px);border-left:1px solid var(--rule)}
+.ab-r.ab-g{background:linear-gradient(90deg,var(--ivory),var(--ivory)) no-repeat;background-size:100% 100%}
+.ab-g-h.ab-r{background:var(--ivory)}
+.ab-g svg{width:20px;height:20px;margin-top:.3em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ab-l svg{color:#A9B2BD}
+.ab-r svg{color:var(--ink)}
+.ab-g p{margin:0;font-size:var(--x-body);line-height:1.55}
+.ab-l p{color:var(--muted)}
+.ab-r p{font-family:var(--fd);font-size:clamp(18px,1.45vw,21px);line-height:1.42;color:var(--ink)}
+
+/* ---------- IV. the close: one shared component, tuned for a longer line ---------- */
+.ab-close .x-close-t{max-width:17ch}
+.ab-close .x-close-t .nw{white-space:nowrap}
+.ab-close .x-close-f img{-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent),linear-gradient(to right,transparent,#000 16%,#000 84%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 72%,transparent),linear-gradient(to right,transparent,#000 16%,#000 84%,transparent);mask-composite:intersect}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .ab-tl>li{grid-template-columns:clamp(110px,16vw,150px) minmax(0,1fr);row-gap:10px}
+  .ab-tl>li>p:last-child{grid-column:2}
+  .ab-late{grid-template-columns:1fr}
+  .ab-late-f{position:static;margin-bottom:clamp(40px,6vw,64px)}
+  .ab-late-img{aspect-ratio:3/2}
+  .ab-late-img img{object-position:50% 30%}
+  .ab-tl-s>li{grid-template-columns:clamp(110px,16vw,150px) minmax(0,1fr)}
+  .ab-tl-s .ab-era{padding-top:.55em;grid-row:1/3}
+  .ab-tl-s>li>p:last-child{grid-column:2}
+}
+@media (max-width:900px){
+  .ab-life-h,.ab-why-h{grid-template-columns:1fr;row-gap:28px}
+  .ab-ledger{grid-template-columns:1fr}
+  .ab-ledger>div,.ab-ledger>div+div{padding:28px 0;border-right:0}
+  .ab-ledger>div+div{border-top:1px solid var(--rule)}
+}
+@media (max-width:640px){
+  .ab-tl>li,.ab-tl-s>li{grid-template-columns:1fr;row-gap:10px;padding:28px 0}
+  .ab-tl>li>p:last-child,.ab-tl-s>li>p:last-child{grid-column:1}
+  .ab-era,.ab-tl-s .ab-era{padding-top:0;grid-row:auto}
+  .ab-plate{margin:56px calc(-1 * var(--x-gut))}
+  .ab-plate-f{aspect-ratio:4/3}
+  .ab-plate figcaption{padding-inline:var(--x-gut)}
+  .ab-late-f{margin-inline:calc(-1 * var(--x-gut))}
+  .ab-late-f figcaption{padding-inline:var(--x-gut)}
+  /* comparison regroups into two stacked blocks */
+  .ab-grid{grid-template-columns:1fr}
+  .ab-g-h.ab-l{order:1}.ab-grid>.ab-l.ab-g{order:2}
+  .ab-g-h.ab-r{order:3;margin-top:40px;border-top:1px solid var(--ink)}.ab-grid>.ab-r.ab-g{order:4}
+  .ab-l,.ab-r{padding-left:0;padding-right:0;border-left:0}
+  .ab-g-h.ab-r,.ab-r.ab-g{background:none}
+  .ab-g-h{padding:18px 0}
+}

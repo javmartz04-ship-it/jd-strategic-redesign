@@ -1,0 +1,76 @@
+/* =====================================================================
+   Contact: the fit finder is the page head (dark, H1 inside), then on
+   light ground: three hairline doors, the calendar, the questions.
+   Loaded after lux.css.
+   ===================================================================== */
+
+/* I. the head is the fit finder */
+.lux .ct-head{padding:calc(var(--nav-h) + clamp(80px,8.4vw,136px)) 0 var(--x-sec)}
+.ct-head-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(32px,5vw,96px);align-items:start;margin-bottom:clamp(56px,6vw,96px)}
+.ct-head-g>*{grid-column:1/-1}
+.ct-head-g .x-run{margin-bottom:clamp(28px,3vw,40px)}
+.lux .ct-head-g .ch-title{font-family:var(--fd);font-weight:400;color:#fff;font-size:clamp(46px,6.2vw,96px);line-height:.98;letter-spacing:-.028em;max-width:15ch;margin-bottom:clamp(36px,3.6vw,56px)}
+.lux .ct-head-g .ch-title .it{color:var(--accent);font-weight:400}
+.lux .ct-head-g .lede{grid-column:2;margin:0;max-width:44ch;font-size:var(--x-lede);line-height:1.5;color:rgba(255,255,255,.72)}
+.lux .ct-head .fitbox{max-width:none;margin:0}
+
+/* II. other inquiries: three columns on hairlines, no boxes */
+.ct-inq{background:var(--ivory)}
+.ct-inq-h{margin-bottom:clamp(44px,4.6vw,68px)}
+.ct-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ct-col{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(32px,3vw,48px) clamp(18px,2.4vw,40px) clamp(36px,3.2vw,52px) 0;border-right:1px solid var(--rule)}
+.ct-col+.ct-col{padding-left:clamp(18px,2.4vw,40px)}
+.ct-col:last-child{border-right:0}
+.ct-col h3{font-family:var(--fd);font-size:var(--x-h3);line-height:1.2;color:var(--ink);margin-bottom:12px}
+.ct-col p{font-size:16px;line-height:1.62;color:var(--body);max-width:32ch;margin-bottom:28px}
+.ct-v{margin-top:auto;font-family:var(--fd);font-size:clamp(20px,1.6vw,24px);line-height:1.2;color:var(--ink);letter-spacing:-.01em;border-bottom:1px solid var(--rule);padding-bottom:6px;transition:border-color .35s var(--ease-cine),color .35s}
+.ct-v:hover{border-color:var(--ink)}
+.ct-col .x-link{margin-top:auto}
+
+/* III. the calendar, framed cleanly */
+.ct-book{background:var(--paper);border-top:1px solid var(--rule-2)}
+.ct-book-h{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:clamp(32px,6vw,112px);align-items:end;margin-bottom:clamp(48px,5vw,76px)}
+.ct-book-h .x-run{grid-column:1/-1}
+.ct-book-h .x-h2{max-width:none}
+.ct-book-r .x-body{margin-bottom:24px;max-width:40ch}
+.ct-alt{font-size:14.5px;line-height:1.6;color:var(--muted);padding-top:22px;border-top:1px solid var(--rule);max-width:36ch}
+.ct-alt a{color:var(--ink);border-bottom:1px solid var(--rule);white-space:nowrap}
+.ct-alt a:hover{border-color:var(--ink)}
+.lux #book .ct-cal{max-width:none;margin:0;border:1px solid var(--rule);box-shadow:none;background:#fff}
+.lux .ct-cal::before{display:none}
+.lux .ct-cal .cal-top{font-size:12px;font-weight:500;letter-spacing:.16em;border-bottom-color:var(--rule)}
+.lux .ct-cal .cal-body{padding:0}
+
+/* IV. the questions, as large serif rows */
+.ct-faq{background:var(--ivory)}
+.ct-faq-g{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:clamp(40px,6vw,112px);align-items:start}
+.ct-faq-g .x-h2{max-width:11ch}
+.lux .ct-faq .faq-l{border-top:1px solid var(--ink)}
+.lux .ct-faq .faq-i{border-bottom:1px solid var(--rule)}
+.lux .ct-faq .faq-q{font-family:var(--fd);font-weight:400;font-size:var(--x-h3);line-height:1.25;letter-spacing:-.015em;color:var(--ink);padding:clamp(26px,2.4vw,34px) 0;grid-template-columns:minmax(0,1fr) 24px}
+.lux .ct-faq .faq-q:hover{color:var(--accent-text)}
+.lux .ct-faq .faq-ic{margin-top:8px}
+.lux .ct-faq .faq-ic::before,.lux .ct-faq .faq-ic::after{background:var(--ink)}
+.lux .ct-faq .faq-i.open .faq-ic::before{background:var(--accent-text)}
+.lux .ct-faq .faq-a p{font-size:var(--x-body);line-height:1.66;color:var(--body);max-width:58ch;padding-bottom:34px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .ct-book-h,.ct-faq-g{grid-template-columns:1fr}
+  .ct-book-r{margin-top:24px}
+  .ct-faq-g .x-h2{max-width:16ch}
+}
+@media (max-width:900px){
+  .ct-head-g{grid-template-columns:1fr}
+  .lux .ct-head-g .lede{grid-column:1}
+  .ct-cols{grid-template-columns:1fr;border-bottom:0}
+  .ct-col,.ct-col+.ct-col{padding:32px 0;border-right:0;border-bottom:1px solid var(--rule)}
+}
+@media (max-width:640px){
+  .lux .ct-head{padding:calc(var(--nav-h) + 64px) 0 72px}
+  .lux .ct-head-g .ch-title{font-size:clamp(40px,11vw,52px)}
+  .ct-head-g{margin-bottom:44px}
+  .lux #book .ct-cal{margin-inline:calc(var(--x-gut) * -1);border-inline:0}
+}
+.ct-book-h .x-h2 .it{display:block}
+.lux .cal-top{display:none}

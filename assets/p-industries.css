@@ -1,0 +1,77 @@
+/* =====================================================================
+   INDUSTRIES: an editorial index, not a tile grid.
+   Twelve hairline rows on the left, one graded plate on the right that
+   follows the row under the pointer. On narrow screens the plate goes
+   away and each row carries its own photograph inline.
+   ===================================================================== */
+
+/* the index */
+.ix{background:var(--paper);padding-bottom:clamp(96px,10vw,152px)}
+.ix-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(32px,5vw,96px);align-items:end;padding-bottom:clamp(28px,3vw,40px)}
+.ix-top .x-run{margin:0}
+.ix-cap{font-family:var(--fd);font-weight:400;font-size:var(--x-h3);line-height:1.3;letter-spacing:-.012em;color:var(--ink);max-width:30ch}
+
+.ix-g{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(40px,5vw,88px);align-items:start}
+.ix-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.ix-list li{border-bottom:1px solid var(--rule)}
+.ix-row{display:grid;grid-template-columns:clamp(44px,4.4vw,64px) minmax(0,1fr) auto;column-gap:clamp(12px,1.6vw,24px);align-items:baseline;padding:clamp(24px,2.3vw,34px) 0;position:relative;color:var(--ink)}
+.ix-row::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--accent);transition:width .7s var(--ease-cine)}
+.ix-n{font-family:var(--fd);font-size:15px;color:var(--muted);font-variant-numeric:lining-nums;transition:color .4s var(--ease-cine)}
+.ix-t{display:block;min-width:0}
+.ix-name{display:block;font-family:var(--fd);font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);transition:color .5s var(--ease-cine)}
+.ix-why{display:block;margin-top:10px;font-size:16px;line-height:1.55;color:var(--body);max-width:46ch;transition:color .4s var(--ease-cine)}
+.ix-go{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--rule);color:var(--ink);align-self:center;transition:background .4s var(--ease-cine),border-color .4s var(--ease-cine)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ix-go svg{width:18px;height:18px;color:var(--ink);transition:transform .5s var(--ease-cine),color .4s}
+.ix-ph{display:none}
+
+/* the current row: the rule draws, the numeral and the arrow take the accent */
+.ix-row.cur::before{width:100%;right:0}
+.ix-row.cur .ix-n{color:var(--accent-text)}
+.ix-row.cur .ix-go{background:var(--ink);border-color:var(--ink)}
+.ix-row.cur .ix-go svg{color:var(--accent);transform:translateX(2px)}
+.ix-list:hover .ix-row:not(.cur) .ix-name,.ix-list:focus-within .ix-row:not(.cur) .ix-name{color:rgba(10,29,58,.42)}
+.ix-list:hover .ix-row:not(.cur) .ix-why{color:var(--muted)}
+
+/* the plate */
+.ix-plate{position:sticky;top:calc(var(--nav-h) + 56px)}
+.ix-plate-f{margin:0;position:relative;aspect-ratio:4/5;max-height:calc(100vh - var(--nav-h) - 150px);width:100%;overflow:hidden;background:var(--stone)}
+.ix-plate-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .7s var(--ease-cine),transform 1.6s var(--ease-cine)}
+.ix-plate-f img.on{opacity:1;transform:none}
+.ix-plate-c{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ix-plate-c span:first-child{font-family:var(--fd);font-size:15px;letter-spacing:0;color:var(--accent-text);font-variant-numeric:lining-nums}
+.ix-plate-c i{width:28px;height:1px;background:var(--rule);flex:none}
+
+/* the band: one line, short on purpose */
+.ix-band{background:var(--ivory);border-top:1px solid var(--rule-2);padding-block:clamp(56px,6vw,88px)}
+.ix-band-g{display:flex;align-items:center;justify-content:space-between;gap:28px clamp(40px,6vw,112px);flex-wrap:wrap}
+.ix-band-t{font-family:var(--fd);font-weight:400;font-size:var(--x-h3);line-height:1.34;letter-spacing:-.012em;color:var(--ink);max-width:40ch}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .ix-top{grid-template-columns:1fr;row-gap:22px}
+  .ix-g{grid-template-columns:1fr}
+  .ix-plate{display:none}
+  .ix-row{grid-template-columns:clamp(40px,6vw,56px) minmax(0,1fr);row-gap:0}
+  .ix-row::before{display:none}
+  .ix-go{display:none}
+  .ix-ph{display:block;grid-column:2;grid-row:1;margin-bottom:22px;aspect-ratio:16/10;overflow:hidden;background:var(--stone)}
+  .ix-ph img{width:100%;height:100%;object-fit:cover}
+  .ix-n{grid-row:2;grid-column:1}
+  .ix-t{grid-row:2;grid-column:2}
+  .ix-row.cur .ix-n{color:var(--muted)}
+  .ix-list:hover .ix-row:not(.cur) .ix-name,.ix-list:focus-within .ix-row:not(.cur) .ix-name{color:var(--ink)}
+  .ix-list:hover .ix-row:not(.cur) .ix-why{color:var(--body)}
+}
+@media (max-width:640px){
+  .ix-row{grid-template-columns:1fr;padding:28px 0 30px}
+  .ix-ph{grid-column:1;margin-bottom:18px;aspect-ratio:16/9}
+  .ix-n{grid-row:2;grid-column:1;margin-bottom:8px}
+  .ix-t{grid-row:3;grid-column:1}
+  .ix-name{font-size:30px}
+  .ix-why{font-size:16px;margin-top:8px}
+  .ix-band-g{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  .ix-plate-f img,.ix-row::before{transition:none!important;transform:none!important}
+}

@@ -1,0 +1,115 @@
+/* =====================================================================
+   RESALES: a private listings desk.
+   What every listing shows sits as a ledger; the listings themselves are
+   rows in a book (rendered by site.js into #rsGrid); when the book is
+   empty it says so with dignity. The request form is hairline, not a card.
+   ===================================================================== */
+
+/* ---------- the desk ---------- */
+.rs-desk{background:var(--paper)}
+.rs-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 48px;flex-wrap:wrap;margin-bottom:clamp(44px,4.6vw,68px)}
+.rs-top .x-h2{max-width:14ch}
+.rs-meta{font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:10px}
+.rs-shows{border-top:1px solid var(--ink)}
+.rs-shows span{max-width:22ch}
+
+/* the book: one grid shared by the column heads and every row */
+.rs-book:has(#rsGrid:empty){margin-top:0}
+.rs-book{--rs-cols:minmax(0,2fr) minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 164px;margin-top:clamp(64px,6.4vw,104px)}
+.rs-cols{display:grid;grid-template-columns:var(--rs-cols);column-gap:clamp(14px,1.6vw,28px);padding:0 0 14px;border-bottom:1px solid var(--ink);font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rs-book:has(#rsGrid:empty) .rs-cols{display:none}
+.lux .rsgrid{display:block;margin:0;padding:0;list-style:none}
+.lux .rsgrid:empty{display:none}
+.lux .rsgrid li{border-bottom:1px solid var(--rule)}
+.lux .rs-card{display:grid;grid-template-columns:var(--rs-cols);grid-template-areas:"id loc r e a go" "k loc r e a go" "h loc r e a go" "note note note note note go";column-gap:clamp(14px,1.6vw,28px);align-items:start;padding:clamp(26px,2.6vw,36px) 0;background:none;border:0;box-shadow:none;transform:none;position:relative;transition:background .5s var(--ease-cine)}
+.lux .rs-card::before{left:0;right:auto;top:-1px;width:0;height:1px;opacity:1;transition:width .7s var(--ease-cine)}
+@media (hover:hover){.lux .rs-card:hover{transform:none;box-shadow:none}.lux .rs-card:hover::before{width:100%}}
+.lux .rs-card .id{grid-area:id;position:static;margin-bottom:6px;font-family:var(--fd);font-size:15px;font-weight:400;letter-spacing:0;color:var(--muted);font-variant-numeric:lining-nums}
+.lux .rs-card .k{grid-area:k;font-size:12.5px;font-weight:500;letter-spacing:.16em;color:var(--muted)}
+.lux .rs-card h3{grid-area:h;font-family:var(--fd);font-weight:400;font-size:var(--x-h3);line-height:1.25;letter-spacing:-.014em;color:var(--ink);margin:8px 0 0}
+.lux .rs-card .loc{grid-area:loc;align-self:center;font-size:16px;color:var(--ink);margin:0}
+.lux .rs-nums{display:contents}
+.lux .rs-nums>div{align-self:center}
+.lux .rs-nums>div:nth-child(1){grid-area:r}.lux .rs-nums>div:nth-child(2){grid-area:e}.lux .rs-nums>div:nth-child(3){grid-area:a}
+.lux .rs-nums span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.lux .rs-nums b{margin:0;font-family:var(--fd);font-weight:400;font-size:clamp(17px,1.3vw,20px);letter-spacing:-.01em;color:var(--ink);white-space:normal}
+.lux .rs-card .note{grid-area:note;margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--body);max-width:62ch}
+.lux .rs-card .btn{grid-area:go;align-self:center;justify-self:end;margin:0;height:48px;padding:0 16px 0 20px;gap:14px;font-size:14px;white-space:nowrap;box-shadow:none}
+
+/* the empty book: said plainly, set like a notice */
+.lux .rs-empty{max-width:none;margin:0;padding:clamp(56px,5.6vw,88px) 0 0;background:none;border:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,6vw,112px);align-items:end}
+.lux .rs-empty[hidden]{display:none}
+.lux .rs-empty-t{font-family:var(--fd);font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1.18;letter-spacing:-.02em;color:var(--ink);margin:0;max-width:16ch;text-wrap:balance}
+.lux .rs-empty-r p{font-size:var(--x-body);line-height:1.66;color:var(--body);max-width:44ch;margin:0 0 30px}
+
+/* ---------- why a resale ---------- */
+.rs-why{background:var(--ivory)}
+.rs-why-g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,7vw,128px);align-items:start}
+.rs-why .x-h2{max-width:13ch}
+.rs-why .x-defs{margin:0}
+.rs-why .x-defs>div{grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:30px 0}
+
+/* ---------- the request ---------- */
+.rs-req{background:var(--paper)}
+.rs-req-g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,7vw,128px);align-items:start}
+.rs-req-l .x-h2{max-width:12ch;margin-bottom:26px}
+.rs-req-l .x-body{max-width:40ch}
+
+.lux .rs-req .rform{max-width:none;margin:0;background:none;border:0;border-top:1px solid var(--ink);box-shadow:none;padding:0}
+.lux .rs-req .rform::before{display:none}
+.lux .rs-req .rf-set{padding:clamp(34px,3.4vw,48px) 0}
+.lux .rs-req .rf-set+.rf-set{padding-top:clamp(34px,3.4vw,48px)}
+.lux .rs-req .rf-set+.rf-set::before{background:var(--rule)}
+.lux .rs-req .rf-set legend{float:left;width:100%;display:flex;align-items:baseline;gap:16px;font-family:var(--fd);font-weight:400;font-size:var(--x-h3);letter-spacing:-.014em;color:var(--ink);margin-bottom:22px}
+.lux .rs-req .rf-n{font-family:var(--fd);font-size:15px;font-weight:400;letter-spacing:0;color:var(--accent-text);font-variant-numeric:lining-nums}
+.lux .rs-req .rf-set legend+*{clear:both}
+.lux .rs-req .rf-lead{font-size:15px;color:var(--muted);margin:-8px 0 24px}
+.lux .rs-req .rf-grid{gap:22px 24px}
+.lux .rs-req .rf-f .fl{font-size:12.5px;font-weight:500;letter-spacing:.16em;color:var(--muted);margin-bottom:10px}
+.lux .rs-req .rf-f .fl em{color:var(--accent-text)}
+.lux .rs-req .rf-f input,.lux .rs-req .rf-f select,.lux .rs-req .rf-f textarea{height:54px;padding:0 16px;font-size:16px;background-color:var(--ivory);border:1px solid var(--rule);border-radius:2px;transition:border-color .3s var(--ease-cine),background-color .3s var(--ease-cine),box-shadow .3s}
+.lux .rs-req .rf-f textarea{height:auto;min-height:120px;padding:15px 16px;line-height:1.55}
+.lux .rs-req .rf-f select{padding-right:44px;background-position:right 16px center}
+.lux .rs-req .rf-f input:hover,.lux .rs-req .rf-f select:hover,.lux .rs-req .rf-f textarea:hover{border-color:rgba(10,29,58,.3)}
+.lux .rs-req .rf-f input:focus,.lux .rs-req .rf-f select:focus,.lux .rs-req .rf-f textarea:focus{background-color:#fff;border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,29,58,.08)}
+.lux .rs-req .rf-f.err input,.lux .rs-req .rf-f.err select,.lux .rs-req .rf-f.err textarea{border-color:var(--accent-text)}
+.lux .rs-req .rf-f .fh{font-size:13px;color:var(--muted)}
+.lux .rs-req .rf-consent{margin:0;padding:28px 0 0;border-top:1px solid var(--rule);font-size:13.5px;color:var(--muted)}
+.lux .rs-req .rf-consent.err{color:var(--accent-text)}
+.lux .rs-req .rf-nav{margin-top:32px;gap:16px 28px}
+.lux .rs-req .rf-nav .btn{padding:0 22px 0 28px}
+.lux .rs-req .rf-nav .reassure{flex-basis:auto;margin:0;font-size:14px;color:var(--muted)}
+.lux .rs-picked{margin:0;padding:18px 0;border:0;border-bottom:1px solid var(--rule);background:none}
+.lux .rs-picked[hidden]{display:none}
+.lux .rs-picked .k{font-size:12.5px;font-weight:500;letter-spacing:.16em;color:var(--muted)}
+.lux .rs-picked b{font-family:var(--fd);font-weight:400;font-size:18px;color:var(--ink)}
+.lux .rs-picked button{color:var(--ink);font-size:22px}
+
+.lux .rs-req .rf-done{max-width:none;margin:0;background:none;border:0;border-top:1px solid var(--ink);padding:clamp(40px,4vw,64px) 0 0;text-align:left}
+.lux .rs-req .rf-done[hidden]{display:none}
+.lux .rs-req .rf-done{scroll-margin-top:calc(var(--nav-h) + 56px)}
+.lux .rs-req .rf-done .mark{margin:0 0 26px;border-radius:0;width:48px;height:48px;border-color:var(--accent-text)}
+.lux .rs-req .rf-done h3{font-family:var(--fd);font-weight:400;font-size:clamp(28px,2.9vw,44px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.lux .rs-req .rf-done p{margin:0 0 30px;max-width:48ch;font-size:var(--x-body);line-height:1.66}
+.lux .rs-req .rf-done .x-link{margin-top:0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .rs-why-g,.rs-req-g{grid-template-columns:1fr}
+  .lux .rs-empty{grid-template-columns:1fr;gap:24px}
+  .rs-cols{display:none}
+  .lux .rs-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:"k k id" "h h h" "loc loc loc" "r e a" "note note note" "go go go";row-gap:0;align-items:baseline}
+  .lux .rs-card .id{justify-self:end;font-size:14px;margin:0}
+  .lux .rs-nums>div{align-self:stretch}
+  .lux .rs-card .loc{margin:6px 0 20px;color:var(--body)}
+  .lux .rs-nums>div{padding:16px 0;border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2)}
+  .lux .rs-nums span{position:static;width:auto;height:auto;clip:auto;display:block;font-size:11.5px;font-weight:500;letter-spacing:.14em;margin-bottom:6px}
+  .lux .rs-card .btn{justify-self:start;margin-top:24px}
+}
+@media (max-width:640px){
+  .rs-top{margin-bottom:36px}
+  .lux .rs-nums b{font-size:16px;white-space:normal}
+  .rs-why .x-defs>div{grid-template-columns:1fr;gap:6px;padding:24px 0}
+  .lux .rs-req .rf-nav .btn,.lux .rs-empty .btn,.lux .rs-card .btn{width:100%;justify-self:stretch}
+}
+.lux .rs-why{padding-bottom:calc(var(--x-sec) * .6)}
