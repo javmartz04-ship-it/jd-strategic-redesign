@@ -397,3 +397,38 @@ body.ready .x-film-cap{opacity:1;transform:none}
 .lux .x-close-t{max-width:16ch;margin-inline:auto}
 .lux .x-close-c .x-body{margin-inline:auto}
 .lux .x-close-c .x-acts{justify-content:center}
+
+/* =====================================================================
+   ORIGINAL PALETTE RESTORED (2026-09-22, Javier: "put the colors back").
+   White canvas with the original lit grounds alternating, the original
+   body/muted greys and hairlines, orange back on the marker, the italics,
+   the buttons (with their glow) and the phone bar.
+   ===================================================================== */
+:root{--ivory:#FFFFFF;--ivory-2:#F5F6F8;--paper:#FFFFFF;--body:#4E5F73;--muted:#63727F;--rule:#E3E7EC;--rule-2:#EEF1F4}
+body.lux{background:#fff}
+.lux .paper{background-color:#fff;background-image:var(--lit-paper)}
+.lux .band{background-color:var(--band);background-image:var(--lit-band)}
+.lux .cream{background-color:var(--cream);background-image:var(--lit-cream)}
+.x-hero{background-color:#fff;background-image:var(--lit-paper)}
+.x-state{background-color:var(--cream);background-image:var(--lit-cream)}
+.x-sift{background-color:#fff;background-image:var(--lit-paper)}
+.x-josh{background-color:var(--cream);background-image:var(--lit-cream)}
+.x-proc{background-color:#fff;background-image:var(--lit-paper)}
+.x-ind{background-color:var(--band);background-image:var(--lit-band)}
+.x-offer{background-color:#fff;background-image:var(--lit-paper)}
+.x-show,.x-belt{background-color:var(--band);background-image:var(--lit-band)}
+.x-film-cap{background:#fff}
+.x-show-play{background:rgba(255,255,255,.94)}
+.lux .nav.stuck .nav-in{background-color:var(--glass)}
+.lux .mmenu{background:rgba(255,255,255,.97)}
+.x-state .hl{background:linear-gradient(rgba(255,106,0,.2),rgba(255,106,0,.2));font-style:normal;text-decoration:none;padding:.02em .1em;margin:0 -.1em;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.x-excl-t .it{color:var(--accent-text)}
+.x-ledger b em{color:var(--accent-text)}
+.lux .btn-accent{box-shadow:0 20px 44px -20px rgba(255,106,0,.62)}
+.lux .btn-accent:hover{background:var(--accent-deep);box-shadow:0 26px 54px -20px rgba(255,106,0,.72)}
+.lux .page-head .btn-accent{background:var(--accent);color:var(--ink)}
+.lux .page-head .btn-accent svg{color:var(--ink)}
+.lux .page-head .btn-accent:hover{background:var(--accent-deep)}
+.lux .mbar{background:rgba(6,16,32,.94);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.lux .mbar .btn{background:var(--accent);color:var(--ink);box-shadow:none}
+.lux .mbar .btn svg{color:var(--ink)}
